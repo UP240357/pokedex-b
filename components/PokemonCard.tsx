@@ -1,0 +1,33 @@
+import React from "react";
+import { Image, Text, View } from "react-native";
+
+interface PokemonCardProps {
+  name: string;
+  url: string;
+}
+
+export default function PokemonCard(props: PokemonCardProps) {
+  const id = props.url.at(-2);
+  const pokemonImagenURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+  //split(), filter(), at()
+
+  //split(): divide un string en arrays, basado en un caracter
+  //filter(): crea un nuveo arreglo con elementos, segun una condicion
+  //at(): funciona para strings y arrays, usa indices negativos para buscar algo
+  return (
+    <View
+      style={{
+        padding: 10,
+        borderWidth: 1,
+        alignItems: "center",
+      }}
+    >
+      <Image
+        source={{ uri: pokemonImagenURL }}
+        style={{ width: 100, height: 100 }}
+      ></Image>
+      <Text>{props.name}</Text>
+      <Text>{props.url}</Text>
+    </View>
+  );
+}
