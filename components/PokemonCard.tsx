@@ -7,7 +7,7 @@ interface PokemonCardProps {
 }
 
 export default function PokemonCard(props: PokemonCardProps) {
-  const id = props.url.at(-2);
+  const id = props.url.split("/").at(-2);
   const pokemonImagenURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   //split(), filter(), at()
 
